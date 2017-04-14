@@ -1,9 +1,55 @@
 \chapter*{Lab - 03}
 
 \section{Parte 1 - Blender}
+Per questa esercitazione (e per le future) si è scelto di creare una batteria. Le tecniche utilizzate per questa creazione sono state le seguenti:
+\begin{itemize}
+  \item Extrusion
+  \item Spinning
+  \item Skinning?
+  \item Swinging?
+\end{itemize}
+Elementi della batteria creati:
+  \begin{multicols}{3}
+    \begin{itemize}
+      \item Grancassa con aste
+	  \item Hit-Hat con pedale
+	  \item Rack con tutti i sostegni
+	  \item Rullante
+	  \item Timpano
+	  \item Due Tom
+	  \item Due Crash
+	  \item Ride
+	  \item Pedale Grancassa
+    \end{itemize}
+  \end{multicols}
+Il risultato è il seguente. Nella cartella \textit{PART-I/Immagini del processo/} è possibile osservare vari step della creazione.
+\begin{figure}[hbt]
+    \centering
+    \subfloat[Fronte]{{\includegraphics[height=6cm]{final1} }}%
+    \subfloat[Retro]{{\includegraphics[height=6cm]{final2} }}%
+	\vspace{-0.2cm}
+\end{figure}
 
 \subsection{Extrusion}
+L'estrusione è stata utilizzata praticamente per tutte le parti della batteria esclusi i piatti. Selezionando una faccia o i vertici che la compongono è possibile estruderla nella direzione della sua normale, permettendo di costruire in modo incrementale delle mesh. Un esempio specifico si ha nella creazione delle aste che fermano la grancassa e nel rack:
+\begin{figure}[hbt]
+    \centering
+    \subfloat[Durante l'estrusione]{{\includegraphics[height=6cm]{asta1} }}%
+    \subfloat[Asta ultimata]{{\includegraphics[height=6cm]{asta2} }}%
+	\vspace{-0.2cm}
+\end{figure}
 
+\begin{figure}[hbt]
+    \centering
+    \subfloat[Durante l'estrusione]{{\includegraphics[height=6cm]{rack1} }}%
+    \subfloat[Rack ultimato]{{\includegraphics[height=6cm]{rack2} }}%
+	\vspace{-0.2cm}
+\end{figure}
+
+Per molti elementi creati, si è utilizzata la funzione di mirroring per avere simmetria negli oggetti che lo richiedevano. Si può notare nell'immagine del Rack: Blender permette di creare e modificare una parte e la sua speculare viene creata automaticamente.
+
+
+\newpage
 
 \subsection{Spinning}
 Per la parte di \textit{spinning} si è scelto di creare un piatto della batteria. Partendo da una curva NURBS è possibile modellare il profilo del piatto. Attivando la visualizzazione ortografica e trascinando sul piano di lavoro un'immagine del piatto, è possibile avere una base su cui modellare il piatto. (figura \ref{fig:nurbs})
@@ -26,22 +72,20 @@ Una volta ottenuto il profilo perfetto, occorre convertire la curva in un oggett
     \vspace{-3.7cm}
 \end{wrapfigure}
 
-\vspace{1cm}Come si può notare in figura \ref{fig:spin-values} è stata applicata una rotazione di 360\degree, è stato preso un centro di rotazione leggermente rialzato con un asse di rotazione unico $Z$.
+\vspace{1cm}\noindent Come si può notare in figura \ref{fig:spin-values} è stata applicata una rotazione di 360\degree, è stato preso un centro di rotazione leggermente rialzato con un asse di rotazione unico $Z$.
 La curva è stata traslata leggermente verso sinistra per poter lasciare un buco in alto. Questo buco serve per inserire il piatto su un asta che lo sorregge.\\
 
-\newpage
-
-Il risultato ottenuto è il seguente. Si può notare la differenza tra la versione flat e la versione smooth. Nell'immagine con la versione flat si può notare ancora la NURBS trasformata in mesh.\\
+\vspace{3cm}Il risultato ottenuto è il seguente. Si può notare la differenza tra la vesione flat e la versione smooth. Nell'immagine con la versione flat si può notare ancora la NURBS trasformata in mesh.\\
 
 \begin{figure}[hbt]%
 	\vspace{-1cm}
     \centering
-    \subfloat[Piatto Flat]{{\includegraphics[height=4cm]{cymbal-flat} }}%
-    \subfloat[Piatto Smooth]{{\includegraphics[height=4cm]{cymbal-smooth} }}%
+    \subfloat[Piatto Flat]{{\includegraphics[height=3.5cm]{cymbal-flat} }}%
+    \subfloat[Piatto Smooth]{{\includegraphics[height=3.5cm]{cymbal-smooth} }}%
 	\vspace{-0.2cm}
 \end{figure}
 
 
-
+\newpage
 %===========================
 \section{Parte 2 - MeshLab}
