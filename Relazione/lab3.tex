@@ -121,7 +121,7 @@ Campionando 30000 punti si ottiene:
     \vspace{-0.3cm}
 \end{figure}
 
-Per ricostruire la mesh si sono ricalcolate le normali con il comando \texttt{Filters/\-Normals, \-Curvatures and \-Orientation/\-Calculate normals \-for \-point \-sets}. A questo punto occorre eseguire il comando \texttt{Filters/\-Remeshing, \-Semplification and \-Construction/\-Surface\- Recostruction\-: Ball \-Pivoting} per l'algoritmo di ricostruzione dei triangoli della mesh.
+Per ricostruire la mesh è stato necessario ricalcolare le normali con il comando \texttt{Filters/\-Normals, \-Curvatures and \-Orientation/\-Calculate normals \-for \-point \-sets}. A questo punto occorre eseguire il comando \texttt{Filters/\-Remeshing, \-Semplification and \-Construction/\-Surface\- Recostruction\-: Ball \-Pivoting} per l'algoritmo di ricostruzione dei triangoli della mesh.
 
 Il risultato è il seguente:
  \begin{figure}[htb]
@@ -142,8 +142,8 @@ Alternando il ricalcolo delle normali e il comando per riparare i buchi (\texttt
 
 
 \subsection{Fairing}
-Per questo punto dell'esercitazione si è utilizzata la mesh \textit{stell2perturb.obj} presente nel template.
-Si è scelto di applicare il denoising Laplaciano con il comando \texttt{Filters/\-Smoothing, \-Fairing \-and \-Decimation/\-Laplacian \-Smooth}
+Per questo punto dell'esercitazione si è utilizzata la mesh \texttt{stell2perturb.obj} presente nel template.
+Si è scelto di applicare il denoising Laplaciano con il comando \texttt{Filters/\-Smoothing, \-Fairing \-and \-Deformation/\-Laplacian \-Smooth}
 
 \begin{figure}[hbt]
     \centering
@@ -153,13 +153,29 @@ Si è scelto di applicare il denoising Laplaciano con il comando \texttt{Filters
 	\vspace{-0.2cm}
 \end{figure}
 
+\newpage
+\subsection{Decimation}
+Per questo punto dell'esercitazione si è utilizzata la mesh \texttt{igea.obj} presente nel template. Si è scelto di applicare il filtro che riduce il numero di facce tramite la \textit{Quadric Edge Collapse Decimation} con il comando: \texttt{Filters/\-Remeshing, \-Semplification\- and \-Construction/\-Quadric \-Edge \-Collapse \-Decimation}.
 
+\begin{figure}[hbt]
+    \centering
+    \subfloat[33585 facce]{{\includegraphics[height=8cm]{igea1} }}%
+    \subfloat[16792 facce]{{\includegraphics[height=8cm]{igea2} }}%
+    \subfloat[4198 facce]{{\includegraphics[height=8cm]{igea3} }}%
+	\vspace{-0.2cm}
+\end{figure}
 
+\subsection{Strumenti di curvatura}
+Per questo punto dell'esercitazione si è utilizzata la mesh \texttt{mannequin.obj} presente nel template. Meshlab mette a disposizione 4 tipi di curvatura utilizzando il comando \texttt{Filters/\-Normals, \-Curvatures and \-Orientation/\-Discrete \-Curvature}:
 
-
-
-
-
+\begin{figure}[hbt]
+    \centering
+    \subfloat[Mean Curvature]{{\includegraphics[height=6cm]{curv1} }}%
+    \subfloat[Gaussian Curvature]{{\includegraphics[height=6cm]{curv2} }}%
+    \subfloat[RMS Curvature]{{\includegraphics[height=6cm]{curv3} }}%
+    \subfloat[ABS Curvature]{{\includegraphics[height=6cm]{curv4} }}%
+	\vspace{-0.2cm}
+\end{figure}
 
 
 
