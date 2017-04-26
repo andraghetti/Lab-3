@@ -89,3 +89,89 @@ La curva è stata traslata leggermente verso sinistra per poter lasciare un buco
 \newpage
 %===========================
 \section{Parte 2 - MeshLab}
+L'esercitazione richiedeva di eseguire i seguenti punti con uno o più modelli:
+\begin{itemize}
+  \item Ricostruzione di oggetti mesh a partire da nuvole di punti (Poisson, MLS, Marching cubes)
+  \item Utilizzare i tool Fill Hole/Mesh Repair per la chiusura di una mesh parzialmente corrotta
+  \item FAIRING: Applicare un filtro di denoising (fairing) ad una mesh perturbata
+  \item DECIMATION: Semplificare a più livelli una mesh con un numero elevato di elementi
+  \item Utilizzare gli strumenti di misura della qualità della superficie (curvatura)
+\end{itemize}
+
+Come specificato, è stato scaricato un oggetto .xyz, ovvero una nuvola di punti dal sito \texttt{http://\-visionair\-.ge\-.imati.cnr.it/\-ontologies/\-shapes/releases.jsp} per il primo punto.
+
+Importando l'oggetto scaricato dal sito si ha il risultato seguente:
+ \begin{figure}[htb]
+    \centering
+    %\vspace{-0.7cm}
+    \includegraphics[width=0.6\textwidth]{begin}
+    \caption{\label{fig:begin}}
+    %\vspace{-0.3cm}
+\end{figure}
+
+\subsection{Ricostruzione Mesh}
+Per ricostruire la mesh si è inizialmente applicato un campionamento per ridurre il numero di punti ed eseguire la ricostruzione in meno tempo. Inoltre è scritto sulla finestra dell'algoritmo utilizzato per ricostruire i triangoli della mesh che quest'ultimo lavora meglio su nuvole di punti campionate con Poisson: \texttt{Filters/Sampling/Poisson-disk Sampling} attivando \textit{Base Mesh Subsampling}.
+\newpage
+
+Campionando 30000 punti si ottiene:
+ \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{poisson}
+    \caption{\label{fig:poisson}}
+    \vspace{-0.3cm}
+\end{figure}
+
+Per ricostruire la mesh si sono ricalcolate le normali con il comando \texttt{Filters/\-Normals, \-Curvatures and \-Orientation/\-Calculate normals \-for \-point \-sets}. A questo punto occorre eseguire il comando \texttt{Filters/\-Remeshing, \-Semplification and \-Construction/\-Surface\- Recostruction\-: Ball \-Pivoting} per l'algoritmo di ricostruzione dei triangoli della mesh.
+
+Il risultato è il seguente:
+ \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{mesh1}
+    \caption{\label{fig:mesh}}
+    \vspace{-0.3cm}
+\end{figure}
+
+\subsection{Fill Hole}
+Alternando il ricalcolo delle normali e il comando per riparare i buchi (\texttt{Filters/\-Remeshing, \-Semplification\- and \-Construction/Close Holes}), si è ottenuto il seguente risultato parziale:
+\begin{figure}[hbt]
+    \centering
+    \subfloat[Prima]{{\includegraphics[height=7cm]{mesh1} }}%
+    \subfloat[Dopo]{{\includegraphics[height=7cm]{holes} }}%
+	\vspace{-0.2cm}
+\end{figure}
+
+
+\subsection{Fairing}
+Per questo punto dell'esercitazione si è utilizzata la mesh \textit{stell2perturb.obj} presente nel template.
+Si è scelto di applicare il denoising Laplaciano con il comando \texttt{Filters/\-Smoothing, \-Fairing \-and \-Decimation/\-Laplacian \-Smooth}
+
+\begin{figure}[hbt]
+    \centering
+    \subfloat[Prima]{{\includegraphics[height=5cm]{star1} }}%
+    \subfloat[Dopo 1]{{\includegraphics[height=5cm]{star2} }}%
+    \subfloat[Dopo 3]{{\includegraphics[height=5cm]{star3} }}%
+	\vspace{-0.2cm}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+
+
